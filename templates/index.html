@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Email AI Classifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Email AI Classifier</h1>
+    <p class="subtitle">Classifique emails e receba respostas automáticas com IA 🤖</p>
+
+    <form method="POST" enctype="multipart/form-data">
+      <label for="email_text">Digite o texto do email:</label>
+      <textarea id="email_text" name="email_text" placeholder="Cole ou digite aqui...">{{ request.form.get('email_text','') }}</textarea>
+
+      <label for="arquivo" class="file-label">Ou envie um arquivo (.txt, .pdf):</label>
+      <input type="file" id="arquivo" name="arquivo" accept=".txt,.pdf">
+
+      <div class="actions">
+        <button type="submit">🚀 Processar</button>
+        <small class="hint">A página será recarregada com o resultado.</small>
+      </div>
+    </form>
+
+    {% if resultado %}
+    <div class="resultado">
+      <h3>📌 Categoria:</h3>
+      <p class="categoria">{{ resultado }}</p>
+
+      <h3>💬 Resposta sugerida:</h3>
+      <pre class="resposta">{{ resposta }}</pre>
+
+      <details>
+         <summary>Mostrar texto processado</summary>
+         <div class="original">{{ original }}</div>
+      </details>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>

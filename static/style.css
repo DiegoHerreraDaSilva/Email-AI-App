@@ -1,0 +1,149 @@
+/* Fundo com gradiente animado */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(-45deg, #fdfeff, #030303, #eeeef0, #050505);
+    background-size: 400% 400%;
+    animation: gradientBG 60s ease infinite;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Container central */
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), #ffffff);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    animation: fadeIn 0.9s ease-in-out;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Cabeçalho */
+h1 {
+    text-align: center;
+    color: #111;
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
+}
+.subtitle {
+    text-align:center;
+    color: #000000;
+    margin-bottom: 22px;
+}
+
+/* Form */
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+/* Textarea com borda animada */
+textarea {
+    width: 98%;
+    min-height: 160px;
+    padding: 14px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 15px;
+    resize: vertical;
+    transition: box-shadow 0.35s, border 0.35s, transform 0.2s;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.04);
+}
+textarea:focus {
+    outline: none;
+    border: 2px solid rgba(13, 13, 14, 0.9);
+    box-shadow: 0 6px 24px rgba(12, 12, 12, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Input file */
+.file-label {
+    font-size: 14px;
+    color: #070707;
+}
+input[type="file"] {
+    padding: 8px;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+button {
+    padding: 12px 18px;
+    background: linear-gradient(45deg, #6f6f70, #020202);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    transition: transform 0.18s ease, box-shadow 0.18s;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+}
+.hint {
+    color: #666;
+    font-size: 13px;
+}
+
+/* Resultado */
+.resultado {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #eef6ff, #ffffff);
+    border: 2px solid rgba(0,102,204,0.12);
+    animation: fadeIn 0.6s ease;
+}
+.resultado h3 { color: #0066cc; margin-bottom: 8px; }
+.categoria { font-weight: 800; font-size: 18px; color: #222; margin-bottom: 10px; }
+
+/* resposta com background e borda animada */
+.resposta {
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.04);
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+/* detalhes rebaixado */
+details summary { cursor: pointer; color: #444; margin-top: 8px; }
+.original {
+    margin-top: 10px;
+    padding: 10px;
+    background: #fafafa;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #333;
+}
+
+/* responsividade simples */
+@media (max-width: 600px) {
+    .container { padding: 18px; border-radius: 12px; }
+    button { width: 100%; }
+}
